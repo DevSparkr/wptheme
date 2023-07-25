@@ -194,4 +194,5 @@ function display_featured_post_column( $column, $id ){
 add_action( 'manage_posts_custom_column', 'display_featured_post_column', 5, 2 );
 
 
-
+require __DIR__ . '/inc/popular-post.php';
+require __DIR__ . '/elementor/elementor.php';

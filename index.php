@@ -22,10 +22,7 @@
         </div>
 
         <div class="grid grid-cols-3 gap-7">
-            <?php 
-                dynamic_sidebar( 'blog_sidebar' );
-            ?>
-            <form method="GET" action="<?php echo esc_url(home_url('/blog/')); ?>">
+            <!-- <form method="GET" action="<?php echo esc_url(home_url('/blog/')); ?>">
                 <select name="orderby" id="orderby">
                     <option value="DESC"
                         <?php
@@ -71,7 +68,7 @@
                 }
                 ?>                
                 <input type="submit" value="Filter" class="btn btn-primary mt-10">
-            </form>
+            </form> -->
             <div class="col-span-2">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-7">
                     <?php
@@ -79,14 +76,14 @@
                         'post_type'     => 'post',
                         'posts_per_page'=> -1
                     );
-                    if( isset( $_GET['category'] ) ){
-                        $cats = $_GET['category'];
-                        $args['category__in'] = $cats;
-                    }
-                    if( isset( $_GET['orderby'] ) ){
-                        $args['orderby'] = "date";
-                        $args['order'] = $_GET['orderby'];
-                    }
+                    // if( isset( $_GET['category'] ) ){
+                    //     $cats = $_GET['category'];
+                    //     $args['category__in'] = $cats;
+                    // }
+                    // if( isset( $_GET['orderby'] ) ){
+                    //     $args['orderby'] = "date";
+                    //     $args['order'] = $_GET['orderby'];
+                    // }
                     $loop = new WP_Query( $args );
                         while( $loop -> have_posts() ){
                             $loop -> the_post();
@@ -100,6 +97,11 @@
                     'prev_text'     => '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"     stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round"   stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>',
                     'next_text'     => '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>'
                 ) ); ?>                
+            </div>
+            <div class="">
+                <?php 
+                    dynamic_sidebar( 'blog_sidebar' );
+                ?>
             </div>
         </div>
 

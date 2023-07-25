@@ -14,12 +14,14 @@
             </div>
             <?php
                 $cats = get_the_terms( $post->ID, 'property-type' );
+                if( $cats ){
                 foreach( $cats as $cat ){
                     ?>
                     <div class="px-3 py-0.5 rounded bg-primary text-white text-sm">
                         <?php echo "For " .$cat->name; ?>
                     </div>
                     <?php
+                }
                 }
             ?>
             
@@ -49,7 +51,7 @@
         </div>
         <div class="flex items-center justify-between">
             <div class="price text-3xl font-semibold text-primary">
-                $<?php the_field( 'porperty_price' ); ?>
+                $<?php the_field( 'property_price' ); ?>
             </div>
             <div class="pc-featured">
                 <?php get_template_part( 'template-parts/porperty-features' ); ?>
